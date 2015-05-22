@@ -125,3 +125,7 @@ gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
+
+gulp.task('summon', ['default'], function () {
+  gulp.start('serve');
+});

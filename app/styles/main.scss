@@ -1,6 +1,8 @@
 $icon-font-path: '../fonts/';
+$fa-font-path: "/bower_components/components-font-awesome/fonts";
 
 // bower:scss
+@import "bower_components/components-font-awesome/scss/font-awesome.scss";
 // endbower
 
 .browserupgrade {
@@ -10,60 +12,14 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  color: #38232F;
+  margin: 0px 0px 0px 0px;
+  background-color: #85BF96;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
+.text-align-right {
+  text-align: right;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -89,4 +45,118 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+#left-pane {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#card-detail {
+  width: calc(100% - 40px);
+  height: calc(100% - 60px);
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: black;
+  position:absolute;
+  display:none;
+}
+
+#card-detail-header {
+  background-color: #85BF96; // done
+  width: 100%;
+  height: 20%;
+  position: relative;
+}
+
+#card-detail-header-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+#card-detail-header-title-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: table;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#card-detail-header-title {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 48px;
+  text-shadow:
+   -1px -1px 0 #FFF8CF,
+    1px -1px 0 #FFF8CF,
+    -1px 1px 0 #FFF8CF,
+     1px 1px 0 #FFF8CF;
+}
+
+#card-detail-body {
+  width: calc(100% - 40px);
+  height: 80%;
+  background-color: #FFF8CF; //done
+  font-size: 20px;
+  padding: 20px 20px 20px 20px;
+  overflow-y: auto;
+}
+
+.card-detail-body-item {
+  padding-bottom: 20px;
+}
+
+.card-detail-body-item-accessory {
+  padding-right: 10px;
+}
+
+#card-action {
+  width: 30%;
+  height: 100%;
+  background-color: #38232F; // done
+  display: block;
+}
+
+#card-action-input {
+  width: calc(100% - 40px);
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+#card-action-item-container {
+  height: calc(100% - 96px);
+  overflow-y:auto;
+  background-color: #FFF8CF;
+  padding: 0px 20px 20px 20px;
+  font-size:20px
+}
+
+.card-action-item {
+  width: 100%;
+  height: 50px;
+  display: table;
+}
+
+.card-action-item > span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
