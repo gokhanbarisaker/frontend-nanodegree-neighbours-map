@@ -146,9 +146,6 @@ var app = app || {};
    */
   Application.prototype.search =  function (service, query) {
 
-    console.log(service);
-    console.log(query);
-
     // Clear artifacts
     app.clearMarkers();
     app.places.removeAll();
