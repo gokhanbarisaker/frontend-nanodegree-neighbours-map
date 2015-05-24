@@ -110,7 +110,7 @@ var app = app || {};
 
       console.log('Loaded service');
 
-      app.search(app.service);
+      app.search(app.service, '');
 
       google.maps.event.addListener(app.map, 'dragend', function() {
         app.search(app.service, app.query());
@@ -145,6 +145,9 @@ var app = app || {};
     !!!: All non-search-result markers will be removed from map.
    */
   Application.prototype.search =  function (service, query) {
+
+    console.log(service);
+    console.log(query);
 
     // Clear artifacts
     app.clearMarkers();
