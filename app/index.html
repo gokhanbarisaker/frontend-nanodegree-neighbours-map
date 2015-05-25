@@ -71,12 +71,16 @@
               <div data-bind="foreach: selectedPlaceNews">
                 <div class="card-detail-body-item">
                   <a data-bind="attr: {href: web_url}">
-                    <div data-bind="text: abstract">
+                    <div data-bind="id: (headline && headline.main)">
+                      <h3 data-bind="text: headline.main"></h3>
+                    </div>
+                    <div data-bind="if: abstract">
+                      <span data-bind="text: abstract"></span>
                     </div>
                   </a>
                 </div>
               </div>
-              <div data-bind="if: (selectedPlaceNewsCopyright() !== null && selectedPlaceNews() !== null && selectedPlaceNews().length > 0)">
+              <div data-bind="if: (selectedPlaceNewsCopyright() && selectedPlaceNews() && selectedPlaceNews().length > 0)">
                 <span data-bind="text: selectedPlaceNewsCopyright"><span>
               </div>
               <div data-bind="if: (selectedPlaceNews() === null || selectedPlaceNews().length === 0)">

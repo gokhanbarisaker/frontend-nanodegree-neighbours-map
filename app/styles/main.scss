@@ -12,6 +12,18 @@ $fa-font-path: "/bower_components/components-font-awesome/fonts";
   padding: 0.2em 0;
 }
 
+a:link {
+ color: #85BF96 /*The color of the link*/
+}
+a:visited {
+ color: #BBD9A1 /*The color of the visited link*/
+}
+a:hover {
+ color: #D3EDA4 /*The color of the mouseover or 'hover' link*/
+}
+
+a, a .action_box { text-decoration: none; }
+
 body {
   color: #38232F;
   margin: 0px 0px 0px 0px;
