@@ -21,6 +21,8 @@ var app = app || {};
       }
     ]);
     this.selectedPlace = ko.observable(null);
+    this.selectedPlaceNews = ko.observable(null);
+    this.selectedPlaceNewsCopyright = ko.observable(null);
     this.selectedPlaceImage = ko.computed(function () {
       var image = null;
       var place = self.selectedPlace();
@@ -56,6 +58,8 @@ var app = app || {};
 
     this.map = {};
     this.service = {};
+
+    this.API_KEY_NYT = 'efed8e326b471440b8d881361355cb15:3:72002426';
   };
 
   /**
@@ -231,6 +235,14 @@ var app = app || {};
     app.fetchDetails(place, function(place) {
       app.selectedPlace(place);
     });
+
+    app.fetchNews(place.name, function (news, copyright) {
+      console.log(news);
+      console.log(copyright);
+
+      app.selectedPlaceNews(news);
+      app.selectedPlaceNewsCopyright(copyright);
+    });
   };
 
   /**
@@ -242,6 +254,8 @@ var app = app || {};
 
   Application.prototype.clearDetails = function() {
     app.selectedPlace(null);
+    app.selectedPlaceNews(null);
+    app.selectedPlaceNewsCopyright(null);
   };
 
   /**
@@ -262,6 +276,31 @@ var app = app || {};
         callback(null);
       }
     });
+  };
+
+  Application.prototype.fetchNews = function (query, callback) {
+    var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + encodeURIComponent(query) + '&api-key=' + encodeURIComponent(app.API_KEY_NYT);
+
+    console.log(url);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var news = null;
+      var copyright = null;
+      var nyt = JSON.parse(this.responseText);
+
+      if (nyt.status === 'OK') {
+        news = nyt.response.docs;
+        copyright = nyt.copyright;
+      }
+
+      if (callback) {
+        callback(news, copyright);
+      }
+    };
+
+    xhr.open('GET', url, true);
+    xhr.send();
   };
 
 
